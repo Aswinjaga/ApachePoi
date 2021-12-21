@@ -20,17 +20,17 @@ public class FlipkartWrite {
 	public static void main(String[] args) throws IOException , FileNotFoundException {
 		// TODO Auto-generated method stub
 
-		/*
-		 * //String url=Base.properties().getProperty("URL"); String
-		 * username=Base.properties().getProperty("username"); String
+
+		// String url=Base.properties().getProperty("URL"); 
+		/* username=Base.properties().getProperty("username"); String
 		 * password=Base.properties().getProperty("Password"); String
 		 * search=Base.properties().getProperty("searchcontent");
 		 */
 
 		Base.init();
 		Base.driver.get(Base.properties().getProperty("URL"));
-		
-     	Elements.userName.sendKeys(Base.properties().getProperty("username"));
+
+		Elements.userName.sendKeys(Base.properties().getProperty("username"));
 		Elements.passWord.sendKeys(Base.properties().getProperty("Password"),Keys.ENTER);
 		Elements.search.sendKeys(Base.properties().getProperty("searchcontent"),Keys.ENTER);
 
@@ -38,7 +38,7 @@ public class FlipkartWrite {
 		XSSFSheet sheet=wb.createSheet("Product");
 		XSSFRow row=sheet.createRow(0);
 		XSSFCell cell=row.createCell(0);
-		//	cell.setCellType(CellType.STRING);// converting to string
+		cell.setCellType(CellType.STRING);// converting to string
 		cell.setCellValue("s.no");
 		row.createCell(1).setCellValue("ProductName");
 		row.createCell(2).setCellValue("Amount");
@@ -46,11 +46,11 @@ public class FlipkartWrite {
 		row.createCell(4).setCellValue("sleeve");
 		row.createCell(5).setCellValue("fit");
 		row.createCell(6).setCellValue("fabric");
-	
+
 		//            List<WebElement> allelement= Base.driver.findElements(By.xpath("(//*[@class=\'_1xHGtK _373qXS\'])[]"));
 		//            for (WebElement newproduct : allelement) {
 		int j=1;
-		for (int i=1; i<=15;i++) {
+		for (int i=1; i<=5;i++) {
 
 			WebElement product1=Base.driver.findElement(By.xpath("(//*[@class='_1xHGtK _373qXS'])["+i+"]"));
 			product1.click();
@@ -85,7 +85,7 @@ public class FlipkartWrite {
 			Base.driver.switchTo().window(oldwindow);
 			j++;
 		}
-		wb.close();
-		Base.driver.quit();
+		    wb.close();
+		    Base.driver.quit();
 	}
-	}
+}

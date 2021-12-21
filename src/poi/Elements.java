@@ -1,6 +1,5 @@
 package poi;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -39,6 +38,4 @@ public class Elements {
 	@FindBy(xpath = "(//*[@class=\'col col-9-12 _2vZqPX\'])[4]")
 	public static WebElement fabric;
 	
-	
-
 }
